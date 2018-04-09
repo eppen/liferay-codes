@@ -1,0 +1,257 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.1.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_6_1_0.dtd">
+<service-builder package-path="com.cignexdatamatics.wrm">
+	<namespace>wrm</namespace>
+
+	<entity name="RoomMaster" local-service="true" remote-service="false">
+
+		<!-- PK fields -->
+		<column name="roomId" type="long" primary="true" />
+    		
+		<!-- FK fields -->
+		<column name="cityId" type="long" />
+	   	<column name="locationId" type="long" />
+       	<column name="floorId" type="long" />
+		
+		<!-- Other fields -->
+		<column name="roomName" type="String" />
+	    <column name="capacity" type="long" />
+	    <column name="extension" type="long" />
+
+		<!-- Order -->
+            <order by="asc">
+              <order-column name="cityId"/>
+              <order-column name="locationId"/>
+		      <order-column name="floorId" />
+              <order-column name="roomName" case-sensitive="false" />
+	        </order>
+		
+		<!-- Finder methods -->
+            <finder name="CityId" return-type="Collection">
+		    <finder-column name="cityId" />
+	        </finder>
+	        <finder name="LocationId" return-type="Collection">
+		    <finder-column name="locationId" />
+	        </finder>
+	        <finder name="FloorId" return-type="Collection">
+		    <finder-column name="floorId" />
+	        </finder>	
+	        
+	         <finder name="RoomByLocandCity" return-type="Collection">
+	        <finder-column name="cityId" />
+	        <finder-column name="locationId" />
+	        </finder>
+	        
+	        <finder name="RoomByLocationCityFloor" return-type="Collection">
+	        <finder-column name="cityId" />
+	        <finder-column name="locationId" />
+	         <finder-column name="floorId" />
+	        </finder>
+	        	   	        
+	        <finder name="RoomByRoomName" return-type="RoomMaster">
+		    <finder-column name="roomName" />
+	        </finder>
+	
+     </entity>
+     <entity name="FacilityMaster" local-service="true" remote-service="false">
+
+		<!-- PK fields -->
+		<column name="facilitiesId" type="long" primary="true" />
+		
+		<!-- Other fields -->
+		<column name="facilitiesName" type="String" />
+        <column name="facilitiesDesc" type="String" />
+
+		<!-- Order -->
+                <order by="asc">
+		     <order-column name="facilitiesName" />                   
+	        </order>                
+		
+		<!-- Finder methods -->
+        <finder name="FacilitiesName" return-type="FacilityMaster">
+		<finder-column name="facilitiesName" />
+	    </finder>
+	     <finder name="FacilitiesId" return-type="FacilityMaster">
+		<finder-column name="facilitiesId" />
+	    </finder>
+
+    </entity>
+    <entity name="CityMaster" local-service="true" remote-service="false">
+
+		<!-- PK fields -->
+                 <column name="cityId" type="long" primary="true" />		
+		
+		<!-- Other fields -->
+                 <column name="cityName" type="String" />
+		
+		<!-- Order -->
+                 <order by="asc">
+		     <order-column name="cityName" />                   
+	        </order>      
+		
+		<!-- Finder methods -->
+             <finder name="CityName" return-type="CityMaster">
+		      <finder-column name="cityName" />
+	        </finder>
+
+     </entity>
+     <entity name="LocationMaster" local-service="true" remote-service="false">
+
+		<!-- PK fields -->
+		<column name="locationId" type="long" primary="true" />
+
+		<!-- FK fields -->
+		<column name="cityId" type="long" />
+		
+		<!-- Other fields -->
+		<column name="locationName" type="String" />
+	
+		<!-- Order -->
+                <order by="asc">
+		    <order-column name="cityId" />
+           <order-column name="locationName" case-sensitive="false" />
+	        </order>
+		
+		<!-- Finder methods -->
+                <finder name="CityId" return-type="Collection">
+                <finder-column name="cityId" />
+                </finder>
+                <finder name="LocationName" return-type="Collection">
+                <finder-column name="locationName" />
+                </finder>
+                
+      </entity>
+      <entity name="FloorMaster" local-service="true" remote-service="false">
+
+		<!-- PK fields -->
+		<column name="floorId" type="long" primary="true" />
+		
+		<!-- FK fields -->
+		<column name="locationId" type="long" />
+		
+		<!-- Other fields -->
+		<column name="floorName" type="String" />
+
+		<!-- Order -->
+		<order by="asc">
+			<order-column name="floorName" />
+		</order>
+		
+		<!-- Finder methods -->
+                <finder name="locationId" return-type="Collection">
+                         <finder-column name="locationId" />
+                </finder>
+                <finder name="FloorName" return-type="FloorMaster">
+                         <finder-column name="floorName" />
+                </finder>
+                
+	 </entity>
+      <entity name="RoomFacilityMapping" local-service="true" remote-service="false">
+
+      
+       	<!-- FK fields --> 
+                <column name="roomId" type="long" primary="true"/>
+		        <column name="facilitiesId" type="long" primary="true" />	
+		        
+		 <!-- Finder methods -->
+                <finder name="roomId" return-type="Collection">
+                         <finder-column name="roomId" />
+                </finder>
+                <finder name="facilitiesId" return-type="Collection">
+                         <finder-column name="facilitiesId" />
+                </finder>
+		 	
+              
+		
+	  </entity>
+	  <entity name="BookingFacilityMapping" local-service="true" remote-service="false">         
+		 
+		<!-- FK fields -->
+		<column name="bookingId" type="long" primary="true"/>
+		<column name="facilitiesId" type="long" primary="true"/>
+		
+		        
+		 <!-- Finder methods -->
+                <finder name="bookingId" return-type="Collection">
+                         <finder-column name="bookingId" />
+                </finder>
+                <finder name="facilitiesId" return-type="Collection">
+                         <finder-column name="facilitiesId" />
+                </finder>
+           
+       
+	 </entity>
+	 <entity name="BookingAttendees" local-service="true" remote-service="false">     
+	   
+		<!-- FK fields -->
+		<column name="attendeesId" type="long" primary="true"/>
+		<column name="bookingId" type="long" primary="true"/>
+		
+		 <!-- Finder methods -->
+         <finder name="AttendeesId" return-type="Collection">
+         <finder-column name="attendeesId" />
+         </finder>
+         <finder name="BookingId" return-type="Collection">
+         <finder-column name="bookingId" />
+         </finder>
+
+	 </entity>
+	 <entity name="BookingRooms" local-service="true" remote-service="false">
+	 
+	    <!-- PK fields -->
+		<column name="BRMappingId" type="long" primary="true" />
+	 
+	    <!-- FK fields -->
+		<column name="bookingId" type="long"  />
+		<column name="roomId" type="long" />
+		<column name="bookingDate" type="Date" />
+		
+	     <!-- Order -->
+            <order by="asc">
+
+              <order-column name="bookingDate"/>
+              <order-column name="bookingId"/>
+	        </order>
+		
+		<!-- Finder methods -->
+                <finder name="BookingId" return-type="Collection">
+                      <finder-column name="bookingId" />
+                </finder>
+                <finder name="RoomId" return-type="Collection">
+                      <finder-column name="roomId" />
+                </finder>
+                 <finder name="BookingDate" return-type="Collection">
+                      <finder-column name="bookingDate" />
+                </finder>
+                <finder name="RoomIdAndBookingDate" return-type="Collection">
+                      <finder-column name="roomId" />
+                      <finder-column name="bookingDate" />
+               </finder>
+       </entity>
+       
+       <entity name="NewBooking" local-service="true" remote-service="true">
+
+		<!-- PK fields -->		
+			<column name="bookingId" type="long" primary="true" />		
+			
+		<!-- Other fields -->
+			<column name="meetingTitle" type="String" />
+			<column name="meetingDesc" type="String" />
+			<column name="hostId" type="long" />
+			<column name="fromDate" type="Date" />
+			<column name="toDate" type="Date" />
+			<column name="startTime" type="String" />		
+	    	<column name="endTime" type="String" />
+	    	
+	    	<!-- Finder methods -->
+	    	<finder name="BookedRoomByDateandTime" return-type="Collection">
+                      <finder-column name="fromDate" />
+                      <finder-column name="toDate" />
+                      <finder-column name="startTime" />
+                      <finder-column name="endTime" />
+                      
+            </finder>
+				
+        </entity>
+	 	    
+</service-builder>

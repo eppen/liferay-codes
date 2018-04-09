@@ -1,0 +1,1 @@
+Liferay.Service.register("Liferay.Service.wrm", "com.cignexdatamatics.wrm.service", "workplace-reservation-manager-portlet");

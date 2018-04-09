@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-lazy="false" auto-import="false">
+	<import class="com.cignexdatamatics.wrm.model.BookingAttendees" />
+	<import class="com.cignexdatamatics.wrm.model.BookingFacilityMapping" />
+	<import class="com.cignexdatamatics.wrm.model.BookingRooms" />
+	<import class="com.cignexdatamatics.wrm.model.CityMaster" />
+	<import class="com.cignexdatamatics.wrm.model.FacilityMaster" />
+	<import class="com.cignexdatamatics.wrm.model.FloorMaster" />
+	<import class="com.cignexdatamatics.wrm.model.LocationMaster" />
+	<import class="com.cignexdatamatics.wrm.model.NewBooking" />
+	<import class="com.cignexdatamatics.wrm.model.RoomFacilityMapping" />
+	<import class="com.cignexdatamatics.wrm.model.RoomMaster" />
+	<class name="com.cignexdatamatics.wrm.model.impl.BookingAttendeesImpl" table="wrm_BookingAttendees">
+		<cache usage="read-write" />
+		<composite-id name="primaryKey" class="com.cignexdatamatics.wrm.service.persistence.BookingAttendeesPK">
+			<key-property name="attendeesId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+			<key-property name="bookingId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		</composite-id>
+	</class>
+	<class name="com.cignexdatamatics.wrm.model.impl.BookingFacilityMappingImpl" table="wrm_BookingFacilityMapping">
+		<cache usage="read-write" />
+		<composite-id name="primaryKey" class="com.cignexdatamatics.wrm.service.persistence.BookingFacilityMappingPK">
+			<key-property name="bookingId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+			<key-property name="facilitiesId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		</composite-id>
+	</class>
+	<class name="com.cignexdatamatics.wrm.model.impl.BookingRoomsImpl" table="wrm_BookingRooms">
+		<cache usage="read-write" />
+		<id name="BRMappingId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="bookingId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="roomId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="bookingDate" type="org.hibernate.type.TimestampType" />
+	</class>
+	<class name="com.cignexdatamatics.wrm.model.impl.CityMasterImpl" table="wrm_CityMaster">
+		<cache usage="read-write" />
+		<id name="cityId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="cityName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="com.cignexdatamatics.wrm.model.impl.FacilityMasterImpl" table="wrm_FacilityMaster">
+		<cache usage="read-write" />
+		<id name="facilitiesId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="facilitiesName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="facilitiesDesc" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="com.cignexdatamatics.wrm.model.impl.FloorMasterImpl" table="wrm_FloorMaster">
+		<cache usage="read-write" />
+		<id name="floorId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="locationId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="floorName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="com.cignexdatamatics.wrm.model.impl.LocationMasterImpl" table="wrm_LocationMaster">
+		<cache usage="read-write" />
+		<id name="locationId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="cityId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="locationName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="com.cignexdatamatics.wrm.model.impl.NewBookingImpl" table="wrm_NewBooking">
+		<cache usage="read-write" />
+		<id name="bookingId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="meetingTitle" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="meetingDesc" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="hostId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="fromDate" type="org.hibernate.type.TimestampType" />
+		<property name="toDate" type="org.hibernate.type.TimestampType" />
+		<property name="startTime" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="endTime" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="com.cignexdatamatics.wrm.model.impl.RoomFacilityMappingImpl" table="wrm_RoomFacilityMapping">
+		<cache usage="read-write" />
+		<composite-id name="primaryKey" class="com.cignexdatamatics.wrm.service.persistence.RoomFacilityMappingPK">
+			<key-property name="roomId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+			<key-property name="facilitiesId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		</composite-id>
+	</class>
+	<class name="com.cignexdatamatics.wrm.model.impl.RoomMasterImpl" table="wrm_RoomMaster">
+		<cache usage="read-write" />
+		<id name="roomId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="cityId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="locationId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="floorId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="roomName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="capacity" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="extension" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+	</class>
+</hibernate-mapping>

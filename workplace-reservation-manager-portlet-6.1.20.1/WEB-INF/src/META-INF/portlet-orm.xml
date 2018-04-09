@@ -1,0 +1,165 @@
+<?xml version="1.0"?>
+
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd">
+	<persistence-unit-metadata>
+		<xml-mapping-metadata-complete/>
+		<persistence-unit-defaults>
+			<access>PROPERTY</access>
+		</persistence-unit-defaults>
+	</persistence-unit-metadata>
+	<mapped-superclass class="com.cignexdatamatics.wrm.model.impl.BookingAttendeesModelImpl">
+		<id-class class="com.cignexdatamatics.wrm.service.persistence.BookingAttendeesPK" />
+		<attributes>
+			<id name="attendeesId" />
+			<id name="bookingId" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.cignexdatamatics.wrm.model.impl.BookingFacilityMappingModelImpl">
+		<id-class class="com.cignexdatamatics.wrm.service.persistence.BookingFacilityMappingPK" />
+		<attributes>
+			<id name="bookingId" />
+			<id name="facilitiesId" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.cignexdatamatics.wrm.model.impl.BookingRoomsModelImpl">
+		<attributes>
+			<id name="BRMappingId" />
+			<basic name="bookingId" />
+			<basic name="roomId" />
+			<basic name="bookingDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.cignexdatamatics.wrm.model.impl.CityMasterModelImpl">
+		<attributes>
+			<id name="cityId" />
+			<basic name="cityName" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.cignexdatamatics.wrm.model.impl.FacilityMasterModelImpl">
+		<attributes>
+			<id name="facilitiesId" />
+			<basic name="facilitiesName" />
+			<basic name="facilitiesDesc" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.cignexdatamatics.wrm.model.impl.FloorMasterModelImpl">
+		<attributes>
+			<id name="floorId" />
+			<basic name="locationId" />
+			<basic name="floorName" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.cignexdatamatics.wrm.model.impl.LocationMasterModelImpl">
+		<attributes>
+			<id name="locationId" />
+			<basic name="cityId" />
+			<basic name="locationName" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.cignexdatamatics.wrm.model.impl.NewBookingModelImpl">
+		<attributes>
+			<id name="bookingId" />
+			<basic name="meetingTitle" />
+			<basic name="meetingDesc" />
+			<basic name="hostId" />
+			<basic name="fromDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="toDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="startTime" />
+			<basic name="endTime" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.cignexdatamatics.wrm.model.impl.RoomFacilityMappingModelImpl">
+		<id-class class="com.cignexdatamatics.wrm.service.persistence.RoomFacilityMappingPK" />
+		<attributes>
+			<id name="roomId" />
+			<id name="facilitiesId" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.cignexdatamatics.wrm.model.impl.RoomMasterModelImpl">
+		<attributes>
+			<id name="roomId" />
+			<basic name="cityId" />
+			<basic name="locationId" />
+			<basic name="floorId" />
+			<basic name="roomName" />
+			<basic name="capacity" />
+			<basic name="extension" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<entity class="com.cignexdatamatics.wrm.model.impl.BookingAttendeesImpl" name="BookingAttendees">
+		<table name="wrm_BookingAttendees" />
+		<attributes />
+	</entity>
+	<entity class="com.cignexdatamatics.wrm.model.impl.BookingFacilityMappingImpl" name="BookingFacilityMapping">
+		<table name="wrm_BookingFacilityMapping" />
+		<attributes />
+	</entity>
+	<entity class="com.cignexdatamatics.wrm.model.impl.BookingRoomsImpl" name="BookingRooms">
+		<table name="wrm_BookingRooms" />
+		<attributes />
+	</entity>
+	<entity class="com.cignexdatamatics.wrm.model.impl.CityMasterImpl" name="CityMaster">
+		<table name="wrm_CityMaster" />
+		<attributes />
+	</entity>
+	<entity class="com.cignexdatamatics.wrm.model.impl.FacilityMasterImpl" name="FacilityMaster">
+		<table name="wrm_FacilityMaster" />
+		<attributes />
+	</entity>
+	<entity class="com.cignexdatamatics.wrm.model.impl.FloorMasterImpl" name="FloorMaster">
+		<table name="wrm_FloorMaster" />
+		<attributes />
+	</entity>
+	<entity class="com.cignexdatamatics.wrm.model.impl.LocationMasterImpl" name="LocationMaster">
+		<table name="wrm_LocationMaster" />
+		<attributes />
+	</entity>
+	<entity class="com.cignexdatamatics.wrm.model.impl.NewBookingImpl" name="NewBooking">
+		<table name="wrm_NewBooking" />
+		<attributes />
+	</entity>
+	<entity class="com.cignexdatamatics.wrm.model.impl.RoomFacilityMappingImpl" name="RoomFacilityMapping">
+		<table name="wrm_RoomFacilityMapping" />
+		<attributes />
+	</entity>
+	<entity class="com.cignexdatamatics.wrm.model.impl.RoomMasterImpl" name="RoomMaster">
+		<table name="wrm_RoomMaster" />
+		<attributes />
+	</entity>
+</entity-mappings>

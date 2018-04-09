@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<bean id="com.cignexdatamatics.wrm.service.BookingAttendeesLocalService" class="com.cignexdatamatics.wrm.service.impl.BookingAttendeesLocalServiceImpl" />
+	<bean id="com.cignexdatamatics.wrm.service.persistence.BookingAttendeesPersistence" class="com.cignexdatamatics.wrm.service.persistence.BookingAttendeesPersistenceImpl" parent="basePersistence" />
+	<bean id="com.cignexdatamatics.wrm.service.BookingFacilityMappingLocalService" class="com.cignexdatamatics.wrm.service.impl.BookingFacilityMappingLocalServiceImpl" />
+	<bean id="com.cignexdatamatics.wrm.service.persistence.BookingFacilityMappingPersistence" class="com.cignexdatamatics.wrm.service.persistence.BookingFacilityMappingPersistenceImpl" parent="basePersistence" />
+	<bean id="com.cignexdatamatics.wrm.service.BookingRoomsLocalService" class="com.cignexdatamatics.wrm.service.impl.BookingRoomsLocalServiceImpl" />
+	<bean id="com.cignexdatamatics.wrm.service.persistence.BookingRoomsPersistence" class="com.cignexdatamatics.wrm.service.persistence.BookingRoomsPersistenceImpl" parent="basePersistence" />
+	<bean id="com.cignexdatamatics.wrm.service.CityMasterLocalService" class="com.cignexdatamatics.wrm.service.impl.CityMasterLocalServiceImpl" />
+	<bean id="com.cignexdatamatics.wrm.service.persistence.CityMasterPersistence" class="com.cignexdatamatics.wrm.service.persistence.CityMasterPersistenceImpl" parent="basePersistence" />
+	<bean id="com.cignexdatamatics.wrm.service.FacilityMasterLocalService" class="com.cignexdatamatics.wrm.service.impl.FacilityMasterLocalServiceImpl" />
+	<bean id="com.cignexdatamatics.wrm.service.persistence.FacilityMasterPersistence" class="com.cignexdatamatics.wrm.service.persistence.FacilityMasterPersistenceImpl" parent="basePersistence" />
+	<bean id="com.cignexdatamatics.wrm.service.FloorMasterLocalService" class="com.cignexdatamatics.wrm.service.impl.FloorMasterLocalServiceImpl" />
+	<bean id="com.cignexdatamatics.wrm.service.persistence.FloorMasterPersistence" class="com.cignexdatamatics.wrm.service.persistence.FloorMasterPersistenceImpl" parent="basePersistence" />
+	<bean id="com.cignexdatamatics.wrm.service.LocationMasterLocalService" class="com.cignexdatamatics.wrm.service.impl.LocationMasterLocalServiceImpl" />
+	<bean id="com.cignexdatamatics.wrm.service.persistence.LocationMasterPersistence" class="com.cignexdatamatics.wrm.service.persistence.LocationMasterPersistenceImpl" parent="basePersistence" />
+	<bean id="com.cignexdatamatics.wrm.service.NewBookingLocalService" class="com.cignexdatamatics.wrm.service.impl.NewBookingLocalServiceImpl" />
+	<bean id="com.cignexdatamatics.wrm.service.NewBookingService" class="com.cignexdatamatics.wrm.service.impl.NewBookingServiceImpl" />
+	<bean id="com.cignexdatamatics.wrm.service.persistence.NewBookingPersistence" class="com.cignexdatamatics.wrm.service.persistence.NewBookingPersistenceImpl" parent="basePersistence" />
+	<bean id="com.cignexdatamatics.wrm.service.RoomFacilityMappingLocalService" class="com.cignexdatamatics.wrm.service.impl.RoomFacilityMappingLocalServiceImpl" />
+	<bean id="com.cignexdatamatics.wrm.service.persistence.RoomFacilityMappingPersistence" class="com.cignexdatamatics.wrm.service.persistence.RoomFacilityMappingPersistenceImpl" parent="basePersistence" />
+	<bean id="com.cignexdatamatics.wrm.service.RoomMasterLocalService" class="com.cignexdatamatics.wrm.service.impl.RoomMasterLocalServiceImpl" />
+	<bean id="com.cignexdatamatics.wrm.service.persistence.RoomMasterPersistence" class="com.cignexdatamatics.wrm.service.persistence.RoomMasterPersistenceImpl" parent="basePersistence" />
+</beans>

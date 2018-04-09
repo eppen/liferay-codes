@@ -1,0 +1,26 @@
+.wrm-padd .advancesearch {
+  padding: 10px 0 7px 90px; }
+
+.advancesearch.advancesearch-short {
+  background: url("../images/seach-bg.png") no-repeat scroll;
+  background-position: 15px 15px; }
+
+.wrm-padd .advancesearch > span {
+  float: left;
+  width: 126px;
+  padding: 0 45px 0 0;
+  margin: 0 8px 9px 0; }
+
+.clear-both {
+  clear: both; }
+
+.wrm-padd .advancesearch > span.last {
+  padding-right: 0;
+  margin-right: 0; }
+
+.wrm-padd table.wrm-font td input, .wrm-padd table.wrm-font td select {
+  vertical-align: middle; }
+
+.wrm-padd table.wrm-font td {
+  padding: 10px 3px; }
+
