@@ -26,8 +26,8 @@ public class SSOLogic extends MVCPortlet {
 		
 		try
 		{
-			 byte[] sessionKey = "asfuyjkdhfcholae".getBytes("UTF-8"); 
-   		 	 byte[] iv = "42309842389462374623784692423642".getBytes("UTF-8");
+			 byte[] sessionKey = "".getBytes("UTF-8"); 
+   		 	 byte[] iv = "".getBytes("UTF-8");
 		 	
 		 	logger.info("Emp ID for SSO : "+plaintext);
 		 	
@@ -52,8 +52,8 @@ public class SSOLogic extends MVCPortlet {
 		
         String encryptedData = "";
         try {
-        	 String Key = "0070070072017018";
-             String iV = "MediBuddy2017/18";
+        	 String Key = "";
+             String iV = "";
             String EmployeeCode = PLAIN_TEXT;
             byte[] keyByte=Key.getBytes();
             SecretKey key = new SecretKeySpec(keyByte, "AES");
